@@ -14,3 +14,10 @@
 (defun dump-db ()
     (dolist (cd *db*)
         (format t "~{a:~10t~a%~}~%" cd)))
+
+
+;;; Prompts the user to enter input
+(defun prompt-read (prompt)
+    (format *query-io* "~a: " prompt)
+    (force-output *query-io*)
+    (read-line *query-io*))
