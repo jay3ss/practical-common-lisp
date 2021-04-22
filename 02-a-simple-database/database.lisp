@@ -30,3 +30,9 @@
         (prompt-read "Artist")
         (or (parse-integer (prompt-read "Rating") :junk-allowed t) 0)
         (y-or-n-p "Ripped [y/n]: ")))
+
+
+;;; Prompts the user to enter multiple CDs
+(defun add-cds ()
+    (loop (add-record (prompt-for-cd))
+        (if (not (y-or-n-p "Another? [y/n]: ")) (return))))
