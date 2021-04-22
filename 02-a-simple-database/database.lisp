@@ -69,3 +69,15 @@
             (if artist   (equal (getf cd :artist) artist) t)
             (if rating   (equal (getf cd :rating) rating) t)
             (if ripped-p (equal (getf cd :ripped) ripped) t))))
+
+
+;;; Update the database
+(defun update (selector-fn &key title artist rating (ripped nil ripped-p))
+    (setf *db*
+        (mapcar
+            #'(lambda (row)
+                (when (funcall selector-fn row)
+                    (if title    (equal (getf cd :title)  title))
+                    (if artist   (equal (getf cd :artist) artist))
+                    (if rating   (equal (getf cd :rating) rating))
+                    (if ripped-p (equal (getf cd :ripped) ripped)))))))
