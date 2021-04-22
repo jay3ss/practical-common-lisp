@@ -8,3 +8,9 @@
 ;;; Adds a record to the database
 (defun add-record (cd)
     (push cd *db*))
+
+
+;;; Displays the contents of the database in an easy-to-read format
+(defun dump-db ()
+    (dolist (cd *db*)
+        (format t "~{a:~10t~a%~}~%" cd)))
