@@ -81,3 +81,9 @@
                     (if artist   (equal (getf cd :artist) artist))
                     (if rating   (equal (getf cd :rating) rating))
                     (if ripped-p (equal (getf cd :ripped) ripped)))))))
+
+
+
+;;; Remove a row fromt he database
+(defun delete-rows (selector-fn)
+    (setf *db* (remove-if selector-fn *db*)))
