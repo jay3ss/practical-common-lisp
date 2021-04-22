@@ -53,3 +53,9 @@
     (with-open-file (in filename)
         (with-standard-syntax
             (setf *db* (read in)))))
+
+
+;;; General select function that takes a function that gives the selection
+;;; criteria
+(defun select (selector-fn)
+    (remove-if-not selector-fn *db*))
