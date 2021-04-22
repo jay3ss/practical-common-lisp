@@ -46,3 +46,10 @@
                      :if-exists :supersede)
         (with-standard-io-syntax
             (print *db* out))))
+
+
+;;; Loads a database from a file (this will overwrite the contents of *db*)
+(defun load-db (filename)
+    (with-open-file (in filename)
+        (with-standard-syntax
+            (setf *db* (read in)))))
