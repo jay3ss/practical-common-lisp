@@ -13,7 +13,7 @@
 ;;; Displays the contents of the database in an easy-to-read format
 (defun dump-db ()
     (dolist (cd *db*)
-        (format t "~{a:~10t~a%~}~%" cd)))
+        (format t "~{~a:~10t~a~%~}~%" cd)))
 
 
 ;;; Prompts the user to enter input
